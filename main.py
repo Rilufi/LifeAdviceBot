@@ -1,23 +1,19 @@
 from pathlib import Path
-
 import json
 import tweepy
+import os
 from auth import api
-
 import ai
 
-settingsFile = open("settings.json")
-settings = json.load(settingsFile)
-
 adviceAI = ai.AI(
-    organization=settings['openai_organization'],
-    api_key=settings['openai_api_key'],
+    organization=os.environ["OPENAI_ORGANZIATION"],
+    api_key=os.environ["OPENAI_API_KEY"],
     prompt=Path('prompt.txt').read_text(),
-    temperature=settings['ai_temperature'],
-    max_tokens=settings['ai_max_tokens'],
-    presence_penalty=settings['ai_presence_penalty'],
-    frequency_penalty=settings['ai_frequency_penalty'],
-    blacklisted_words=settings['blacklisted_words']
+    temperature=0.9,
+    max_tokens=128,
+    presence_penalty=2,
+    frequency_penalty=1.4,
+    blacklisted_words=["nazi", "killing themselves", "kill yourself", "kill themselves", "retarded", "autistic", "suicide", "suicidal", "rape", "hitler"]
 )
 
 print("Starting...")
