@@ -17,7 +17,6 @@ adviceAI = ai.AI(
 )
 
 print("Starting...")
-
 print("Generating advice...")
 advice = adviceAI.generate_advice()
 print(advice)
