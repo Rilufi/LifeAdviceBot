@@ -1,8 +1,8 @@
 from pathlib import Path
 
 import json
-import time
 import tweepy
+from auth import api
 
 import ai
 
@@ -22,24 +22,9 @@ adviceAI = ai.AI(
 
 print("Starting...")
 
-client = tweepy.Client(
-    consumer_key=settings['twitter_api_key'],
-    consumer_secret=settings['twitter_api_key_secret'],
-    access_token=settings['twitter_access_token'],
-    access_token_secret=settings['twitter_access_token_secret'],
-    wait_on_rate_limit=True
-)
-
-minutesLeft = settings['mins_between_tweets']
-
-while True:
-    while minutesLeft > 0:
-        print(str(minutesLeft) + " minutes left until the next tweet")
-        minutesLeft -= settings['mins_between_time_announcements']
-        time.sleep(60 * settings['mins_between_time_announcements'])
-    print("Generating advice...")
-    advice = adviceAI.generate_advice()
-    print("Tweeting...")
-    client.create_tweet(text=advice)
-    print("Successfully Tweeted: " + advice)
-    minutesLeft = settings['mins_between_tweets']
+print("Generating advice...")
+advice = adviceAI.generate_advice()
+print(advice)
+print("Tweeting...")
+api.update_status(advice)
+print("Successfully Tweeted")
