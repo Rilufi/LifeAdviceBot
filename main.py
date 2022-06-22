@@ -6,7 +6,7 @@ from auth import api
 import ai
 
 adviceAI = ai.AI(
-    organization=os.environ["OPENAI_ORGANZIATION"],
+    organization=os.environ["OPENAI_ORGANIZATION"],
     api_key=os.environ["OPENAI_API_KEY"],
     prompt=Path('prompt.txt').read_text(),
     temperature=0.9,
