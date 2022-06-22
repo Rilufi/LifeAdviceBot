@@ -37,7 +37,7 @@ jobs:
                   
                   envkey_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-                  envkey_OPENAI_ORGANZIATION: ${{ secrets.OPENAI_ORGANIZATION }}
+                  envkey_OPENAI_ORGANIZATION: ${{ secrets.OPENAI_ORGANIZATION }}
 
                   file_name: .env
 
