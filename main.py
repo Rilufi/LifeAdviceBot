@@ -13,7 +13,7 @@ adviceAI = ai.AI(
     max_tokens=128,
     presence_penalty=2,
     frequency_penalty=1.4,
-    blacklisted_words=["nazi", "killing themselves", "kill yourself", "kill themselves", "retarded", "autistic", "suicide", "suicidal", "rape", "hitler"]
+    blacklisted_words=["nazi", "killing themselves", "kill yourself", "kill themselves", "retarded", "autistic", "suicide", "suicidal", "rape", "raping", "hitler"]
 )
 
 print("Starting...")
